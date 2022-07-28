@@ -5,6 +5,7 @@ pipeline {
     stage("Welcome") {
       steps {
         sh "npm install"
+        sh "npm start"
       }
     }
   }
