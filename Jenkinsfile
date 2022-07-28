@@ -13,8 +13,8 @@ pipeline {
     }
     stage("Sec Block") {
       steps {
-        withCredentials([string(credentialsId: 'sec-text', variable: 'secc-texxt')]) {
-          sh "This is the secret ${secc-texxt}"
+        withCredentials([string(credentialsId: 'sec-text', variable: 'dockerpwd')]) {
+          sh "docker login -u kkumaresan -p ${dockerpwd}"
         }
       }
     }
