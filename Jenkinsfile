@@ -3,7 +3,7 @@ pipeline {
   environment {
     COMMIT_TAG = getCommitTag()
     def dockerHome = tool 'myDocker'
-    env.PATH = "${dockerHome}/bin:${env.PATH}"
+    PATH = "${dockerHome}/bin:${PATH}"
   }
   tools { nodejs "node12" }
   stages{
