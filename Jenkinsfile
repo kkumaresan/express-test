@@ -5,6 +5,10 @@ pipeline {
   }
   tools { nodejs "node12" }
   stages{
+    stage('Initialize'){
+      def dockerHome = tool 'myDocker'
+      env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     stage("Welcome") {
       steps {
         sh "npm install"
