@@ -1,34 +1,14 @@
 pipeline {
-  agent any
-  environment {
-    COMMIT_TAG = getCommitTag()
-    def dockerHome = tool 'myDocker'
-    PATH = "${dockerHome}/bin:${PATH}"
-  }
-  tools { 
-    nodejs "node12"
-  }
-  stages{
-    // stage('Initialize'){
-      
-    // }
-    stage("Welcome") {
-      steps {
-        sh "npm install"
-        sh "echo '${COMMIT_TAG} is built'"
-      }
+  agent {
+    docker {
+      image 'node:16.13.1-alpine'
     }
-    stage("Sec Block") {
+  }
+  stages {
+    stage('Test') {
       steps {
-        withCredentials([string(credentialsId: 'sec-text', variable: 'dockerpwd')]) {
-          sh "docker login -u kkumaresan -p ${dockerpwd}"
-        }
+        sh 'node --version'
       }
     }
   }
-}
-
-def getCommitTag() {
-  def tag = sh script: 'git rev-parse HEAD', returnStdout: true
-  return tag
 }
