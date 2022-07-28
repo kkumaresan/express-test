@@ -1,12 +1,10 @@
 pipeline {
   agent any
-  environment {
-    PATH = "/usr/local/bin/npm:$PATH"
-  }
+  tools { nodejs "node" }
   stages{
     stage("Welcome") {
       steps {
-        sh "/usr/local/bin/npm install"
+        sh "npm install"
       }
     }
   }
