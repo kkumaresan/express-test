@@ -5,7 +5,10 @@ pipeline {
     // def dockerHome = tool 'myDocker'
     // PATH = "${dockerHome}/bin:${PATH}"
   }
-  tools { nodejs "node12" }
+  tools { 
+    nodejs "node12"
+    docker "myDocker"
+  }
   stages{
     // stage('Initialize'){
       
