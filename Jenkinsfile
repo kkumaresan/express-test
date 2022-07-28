@@ -8,7 +8,7 @@ pipeline {
     stage("Welcome") {
       steps {
         sh "npm install"
-        sh "echo ${COMMIT_TAG} is built"
+        sh "echo '${COMMIT_TAG} is built'"
       }
     }
   }
