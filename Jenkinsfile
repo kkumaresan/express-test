@@ -2,8 +2,8 @@ pipeline {
   agent any
   environment {
     COMMIT_TAG = getCommitTag()
-    def dockerHome = tool 'myDocker'
-    PATH = "${dockerHome}/bin:${PATH}"
+    // def dockerHome = tool 'myDocker'
+    // PATH = "${dockerHome}/bin:${PATH}"
   }
   tools { nodejs "node12" }
   stages{
