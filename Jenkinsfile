@@ -2,13 +2,14 @@ pipeline {
   agent any
   environment {
     COMMIT_TAG = getCommitTag()
+    def dockerHome = tool 'myDocker'
+    env.PATH = "${dockerHome}/bin:${env.PATH}"
   }
   tools { nodejs "node12" }
   stages{
-    stage('Initialize'){
-      def dockerHome = tool 'myDocker'
-      env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+    // stage('Initialize'){
+      
+    // }
     stage("Welcome") {
       steps {
         sh "npm install"
