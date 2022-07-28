@@ -2,7 +2,9 @@ pipeline {
   agent any
   stages{
     stage("Welcome") {
-      echo "Git is working"
+      steps {
+        echo "Git is working"
+      }
     }
   }
 }
