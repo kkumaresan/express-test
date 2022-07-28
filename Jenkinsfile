@@ -7,7 +7,7 @@ pipeline {
   }
   tools { 
     nodejs "node12"
-    docker "myDocker"
+    "myDocker"
   }
   stages{
     // stage('Initialize'){
