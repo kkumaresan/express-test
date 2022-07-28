@@ -3,7 +3,7 @@ pipeline {
   stages{
     stage("Welcome") {
       steps {
-        echo "Git is working"
+        sh "npm install"
       }
     }
   }
