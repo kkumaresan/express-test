@@ -11,6 +11,13 @@ pipeline {
         sh "echo '${COMMIT_TAG} is built'"
       }
     }
+    stage("Sec Block") {
+      steps {
+        withCredentials([string(credentialsId: 'sec-text', variable: 'secc-texxt')]) {
+          sh "This is the secret ${secc-texxt}"
+        }
+      }
+    }
   }
 }
 
